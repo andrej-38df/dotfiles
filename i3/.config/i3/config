@@ -19,8 +19,7 @@ exec        --no-startup-id    dex --autostart --environment i3
 exec        --no-startup-id    xrandr --output DisplayPort-0 --mode 2560x1440 --rate 143.586
 exec        --no-startup-id    redshift -l 53.1:8.8 -t 6500:3500
 exec        --no-startup-id    nm-applet
-# exec        --no-startup-id    ~/.AppImage/Nextcloud.AppImage
-exec        --no-startup-id    ~/Nextcloud/dotfiles/bin/flatpak-mouse-cursor-size-fix.sh
+exec        --no-startup-id    ~/.config/i3/config/cursorsize.sh
 exec_always --no-startup-id    nitrogen --restore
 exec_always --no-startup-id    ~/.config/picom/picom.sh
 exec_always --no-startup-id    pactl set-default-sink alsa_output.usb-Focusrite_Scarlett_4i4_USB_D8BBCKP0C18CBC-00.analog-surround-40
@@ -71,7 +70,6 @@ for_window [class="Nitrogen"]            floating enable, resize set width 1280 
 
 assign [class="Firefox-esr"]    $ws1
 assign [class="Steam"]          $ws5
-assign [class="QOwnNotes"]      $ws9
 
 ############################
 #    Keyboard shortcuts    #
@@ -101,9 +99,8 @@ tiling_drag modifier titlebar
 bindsym $mod+Return       exec --no-startup-id    gnome-terminal
 bindsym $mod+d            exec --no-startup-id    rofi -show combi -theme Arc-Dark
 bindsym Mod4+e            exec --no-startup-id    thunar
-bindsym Mod4+w            exec --no-startup-id    ~/Nextcloud/dotfiles/.config/i3/firefox.sh
+bindsym Mod4+w            exec --no-startup-id    ~/.config/i3/firefox.sh
 bindsym Mod4+c            exec --no-startup-id    gnome-calculator
-bindsym Mod4+n            exec --no-startup-id    ~/Nextcloud/dotfiles/.config/i3/qownnotes.sh
 
 # Window controls
 bindsym Mod1+Tab exec --no-startup-id rofi -show window
