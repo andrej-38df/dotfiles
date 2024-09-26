@@ -1,0 +1,5 @@
+alias cl='clear'
+alias dotfiles='cd ~/dotfiles'
+alias ll='ls -al'
+alias ls='ls -a'
+alias update='sudo apt update && sudo apt upgrade && flatpak update && sudo snap refresh'
