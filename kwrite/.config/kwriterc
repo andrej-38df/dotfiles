@@ -75,7 +75,7 @@ Fallback Encoding=ISO 8859-15
 [KTextEditor Renderer]
 Animate Bracket Matching=false
 Auto Color Theme Selection=true
-Color Theme=Breeze Dark
+Color Theme=Breeze Light
 Font=JetBrains Mono,12,-1,5,50,0,0,0,0,0
 Line Height Multiplier=1
 Show Indentation Lines=false
@@ -143,6 +143,8 @@ Word Completion Minimal Word Length=3
 Word Completion Remove Tail=true
 
 [MainWindow]
+1920x1080 screen: Height=1035
+1920x1080 screen: Width=1920
 2560x1440 screen: Height=1396
 2560x1440 screen: Width=2560
 

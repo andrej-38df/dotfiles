@@ -47,6 +47,7 @@ hide_edge_borders both
 set $bg-color-active     #242424
 set $bg-color-inactive   #000000
 set $text-color-active   #78aeed
+# set $text-color-active   #ff7b63
 set $text-color-inactive #ffffff
 set $bg-color-urgent     #c01c28
 
