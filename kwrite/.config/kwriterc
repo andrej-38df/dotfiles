@@ -144,7 +144,7 @@ Word Completion Remove Tail=true
 
 [MainWindow]
 2560x1440 screen: Height=1396
-2560x1440 screen: Width=2560
+2560x1440 screen: Width=1278
 
 [UiSettings]
 ColorScheme=Kvantum
