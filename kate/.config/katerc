@@ -159,12 +159,14 @@ RunPrefix=
 SetEditor=false
 
 [MainWindow]
+1920x1080 screen: Height=1035
+1920x1080 screen: Width=1920
 2560x1440 screen: Height=1440
 2560x1440 screen: Width=2560
 2560x1440 screen: Window-Maximized=true
 
 [UiSettings]
-ColorScheme=KvGnomeDark
+ColorScheme=Breeze Dark
 
 [filetree]
 editShade=183,220,246
