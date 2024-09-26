@@ -30,8 +30,8 @@ exec_always --no-startup-id    nitrogen --restore
 
 # Fonts, borders & gaps
 font pango:JetBrains Mono 10
-# default_border pixel 6
-# for_window [class=.*] border pixel 6
+# default_border pixel 1
+# for_window [class=.*] border pixel 1
 hide_edge_borders both
 # gaps inner 10
 # smart_gaps on
@@ -45,17 +45,18 @@ hide_edge_borders both
 
 # Adwaita dark
 set $bg-color-active     #242424
+set $border-color-active #242424
 set $bg-color-inactive   #000000
 set $text-color-active   #78aeed
 # set $text-color-active   #ff7b63
 set $text-color-inactive #ffffff
 set $bg-color-urgent     #c01c28
 
-# client                border             background         text                 indicator
-client.focused          $bg-color-active   $bg-color-active   $text-color-active   #00ff00
-client.unfocused        $bg-color-inactive $bg-color-inactive $text-color-inactive #00ff00
-client.focused_inactive $bg-color-inactive $bg-color-inactive $text-color-inactive #00ff00
-client.urgent           $bg-color-urgent   $bg-color-urgent   $text-color-active   #00ff00
+# client                border                background         text                 indicator
+client.focused          $border-color-active  $bg-color-active   $text-color-active   #00ff00
+client.unfocused        $bg-color-inactive    $bg-color-inactive $text-color-inactive #00ff00
+client.focused_inactive $bg-color-inactive    $bg-color-inactive $text-color-inactive #00ff00
+client.urgent           $bg-color-urgent      $bg-color-urgent   $text-color-active   #00ff00
 
 ######################
 #    Window rules    #
