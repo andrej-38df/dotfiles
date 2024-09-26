@@ -88,7 +88,7 @@ bindsym XF86AudioMicMute exec --no-startup-id        pactl set-source-mute @DEFA
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id      brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id    brightnessctl set -5%
+bindsym XF86MonBrightnessDown exec --no-startup-id    brightnessctl set 5%-
 
 # Mouse controls
 floating_modifier $mod
