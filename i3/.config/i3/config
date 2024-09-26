@@ -1,0 +1,243 @@
+##########################
+#    General settings    #
+##########################
+
+#Set mod key (Mod1 = Alt / Mod4 = Super)
+set $mod Mod1
+
+# Screen locking
+exec --no-startup-id xss-lock --transfer-sleep-lock -- xautolock --no-fork
+bindsym Mod4+l exec --no-startup-id i3lock
+
+workspace_auto_back_and_forth no
+
+###################
+#    Autostart    #
+###################
+
+exec        --no-startup-id    dex --autostart --environment i3
+exec        --no-startup-id    xrandr --output DisplayPort-0 --mode 2560x1440 --rate 143.586
+exec        --no-startup-id    redshift -l 53.1:8.8 -t 6500:3500
+exec        --no-startup-id    nm-applet
+# exec        --no-startup-id    ~/.AppImage/Nextcloud.AppImage
+exec        --no-startup-id    ~/Nextcloud/dotfiles/bin/flatpak-mouse-cursor-size-fix.sh
+exec_always --no-startup-id    nitrogen --restore
+exec_always --no-startup-id    ~/.config/picom/picom.sh
+exec_always --no-startup-id    pactl set-default-sink alsa_output.usb-Focusrite_Scarlett_4i4_USB_D8BBCKP0C18CBC-00.analog-surround-40
+exec_always --no-startup-id    pactl set-sink-volume @DEFAULT_SINK@ 100%
+
+####################
+#    Appearance    #
+####################
+
+# Fonts, borders & gaps
+font pango:monospace 8
+# default_border pixel 6
+# for_window [class=.*] border pixel 6
+hide_edge_borders both
+# gaps inner 10
+# smart_gaps on
+
+# Default colors
+# set $bg-color-active     #4c7899
+# set $bg-color-inactive   #333333
+# set $text-color-active   #ffffff
+# set $text-color-inactive #888888
+# set $bg-color-urgent     #900000
+
+# Adwaita dark
+set $bg-color-active     #242424
+set $bg-color-inactive   #000000
+set $text-color-active   #78aeed
+set $text-color-inactive #ffffff
+set $bg-color-urgent     #c01c28
+
+# client                border             background         text                 indicator
+client.focused          $bg-color-active   $bg-color-active   $text-color-active   #00ff00
+client.unfocused        $bg-color-inactive $bg-color-inactive $text-color-inactive #00ff00
+client.focused_inactive $bg-color-inactive $bg-color-inactive $text-color-inactive #00ff00
+client.urgent           $bg-color-urgent   $bg-color-urgent   $text-color-active   #00ff00
+
+######################
+#    Window rules    #
+######################
+
+# for_window [class="dolphin"]             floating enable, resize set width 1280 px, resize set height 800 px, move position center
+# for_window [class="Nautilus"]            floating enable, resize set width 1280 px, resize set height 800 px, move position center
+# for_window [class="telegram-desktop"]    floating enable, resize set width 1280 px, resize set height 800 px, move position center
+# for_window [class="Thunar"]              floating enable, resize set width 1280 px, resize set height 800 px, move position center
+for_window [class="gnome-calculator"]    floating enable, resize set width  356 px, resize set height 501 px, move position center
+for_window [class="Nitrogen"]            floating enable, resize set width 1280 px, resize set height 800 px, move position center
+
+assign [class="Firefox-esr"]    $ws1
+assign [class="Steam"]          $ws5
+assign [class="QOwnNotes"]      $ws9
+
+############################
+#    Keyboard shortcuts    #
+############################
+
+# i3 controls
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Volume controls
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id    pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id    pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id           pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id        pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id      brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id    brightnessctl set -5%
+
+# Mouse controls
+floating_modifier $mod
+tiling_drag modifier titlebar
+
+# Application launchers
+bindsym $mod+Return       exec --no-startup-id    gnome-terminal
+bindsym $mod+d            exec --no-startup-id    rofi -show combi -theme Arc-Dark
+bindsym Mod4+e            exec --no-startup-id    thunar
+bindsym Mod4+w            exec --no-startup-id    ~/Nextcloud/dotfiles/.config/i3/firefox.sh
+bindsym Mod4+c            exec --no-startup-id    gnome-calculator
+bindsym Mod4+n            exec --no-startup-id    ~/Nextcloud/dotfiles/.config/i3/qownnotes.sh
+
+# Window controls
+bindsym Mod1+Tab exec --no-startup-id rofi -show window
+bindsym $mod+Shift+q        kill
+bindsym $mod+Left           focus left
+bindsym $mod+h              focus left
+bindsym $mod+Down           focus down
+bindsym $mod+k              focus down
+bindsym $mod+Up             focus up
+bindsym $mod+j              focus up
+bindsym $mod+Right          focus right
+bindsym $mod+l              focus right
+bindsym $mod+Shift+Left     move left
+bindsym $mod+Shift+Down     move down
+bindsym $mod+Shift+Up       move up
+bindsym $mod+Shift+Right    move right
+bindsym $mod+x              split h
+bindsym $mod+y              split v
+bindsym $mod+f              fullscreen toggle
+bindsym $mod+s              layout stacking
+bindsym $mod+t              layout tabbed
+bindsym $mod+e              layout default
+bindsym $mod+Shift+f        floating toggle
+bindsym $mod+a              focus parent
+bindsym $mod+c              focus child
+
+####################
+#    Workspaces    #
+####################
+
+# Define workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
+
+# Switch to workspaces
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+bindsym Mod4+1 workspace number $ws11
+bindsym Mod4+2 workspace number $ws12
+bindsym Mod4+3 workspace number $ws13
+bindsym Mod4+4 workspace number $ws14
+bindsym Mod4+5 workspace number $ws15
+bindsym Mod4+6 workspace number $ws16
+bindsym Mod4+7 workspace number $ws17
+bindsym Mod4+8 workspace number $ws18
+bindsym Mod4+9 workspace number $ws19
+bindsym Mod4+0 workspace number $ws20
+
+# Move focused container to workspaces
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym Mod4+Shift+1 move container to workspace number $ws11
+bindsym Mod4+Shift+2 move container to workspace number $ws12
+bindsym Mod4+Shift+3 move container to workspace number $ws13
+bindsym Mod4+Shift+4 move container to workspace number $ws14
+bindsym Mod4+Shift+5 move container to workspace number $ws15
+bindsym Mod4+Shift+6 move container to workspace number $ws16
+bindsym Mod4+Shift+7 move container to workspace number $ws17
+bindsym Mod4+Shift+8 move container to workspace number $ws18
+bindsym Mod4+Shift+9 move container to workspace number $ws19
+bindsym Mod4+Shift+0 move container to workspace number $ws20
+
+#####################
+#    Resize mode    #
+#####################
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 1 px
+        bindsym j resize grow height 1 px
+        bindsym k resize shrink height 1 px
+        bindsym l resize grow width 1 px
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 1 px
+        bindsym Down resize grow height 1 px
+        bindsym Up resize shrink height 1 px
+        bindsym Right resize grow width 1 px
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+################
+#    i3 bar    #
+################
+
+bar {
+    status_command i3blocks
+    position bottom
+    mode dock
+    modifier $mod
+    font pango:JetBrains Mono 10
+}
