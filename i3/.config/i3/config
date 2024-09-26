@@ -29,7 +29,7 @@ exec_always --no-startup-id    nitrogen --restore
 ####################
 
 # Fonts, borders & gaps
-font pango:monospace 8
+font pango:JetBrains Mono 10
 # default_border pixel 6
 # for_window [class=.*] border pixel 6
 hide_edge_borders both
