@@ -20,7 +20,7 @@ exec        --no-startup-id    nm-applet
 exec        --no-startup-id    ~/.config/i3/xrandr.sh
 exec        --no-startup-id    ~/.config/i3/redshift.sh
 exec        --no-startup-id    ~/.config/i3/cursorsize.sh
-exec_always --no-startup-id    ~/.config/picom/picom.sh
+exec_always --no-startup-id    ~/.config/picom/launch.sh
 exec_always --no-startup-id    nitrogen --restore
 exec_always --no-startup-id    pactl set-default-sink alsa_output.usb-Focusrite_Scarlett_4i4_USB_D8BBCKP0C18CBC-00.analog-surround-40
 exec_always --no-startup-id    pactl set-sink-volume @DEFAULT_SINK@ 100%
