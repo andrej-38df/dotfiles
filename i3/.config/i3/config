@@ -110,9 +110,9 @@ bindsym $mod+Shift+q        kill
 bindsym $mod+Left           focus left
 bindsym $mod+h              focus left
 bindsym $mod+Down           focus down
-bindsym $mod+k              focus down
+bindsym $mod+j              focus down
 bindsym $mod+Up             focus up
-bindsym $mod+j              focus up
+bindsym $mod+k              focus up
 bindsym $mod+Right          focus right
 bindsym $mod+l              focus right
 bindsym $mod+Shift+Left     move left
@@ -234,9 +234,12 @@ bindsym $mod+r mode "resize"
 ################
 
 bar {
-    status_command i3blocks
-    position bottom
-    mode dock
-    modifier $mod
-    font pango:JetBrains Mono 10
+        status_command i3blocks
+        position bottom
+        mode dock
+        modifier $mod
+        font pango:JetBrains Mono 10
+        colors {
+                background #242424
+        }
 }
