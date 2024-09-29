@@ -21,6 +21,7 @@ exec        --no-startup-id    unclutter
 exec        --no-startup-id    ~/.config/i3/xrandr.sh
 exec        --no-startup-id    ~/.config/i3/redshift.sh
 exec        --no-startup-id    ~/.config/i3/cursorsize.sh
+exec_always --no-startup-id    ~/.config/polybar/launch.sh
 exec_always --no-startup-id    ~/.config/picom/launch.sh
 exec_always --no-startup-id    ~/.config/i3/audio.sh
 exec_always --no-startup-id    nitrogen --restore
@@ -235,13 +236,13 @@ bindsym $mod+r mode "resize"
 #    i3 bar    #
 ################
 
-bar {
-        status_command i3blocks
-        position bottom
-        mode dock
-        modifier $mod
-        font pango:JetBrains Mono 10
-        colors {
-                background #1e1e1e
-        }
-}
+# bar {
+#         status_command i3blocks
+#         position bottom
+#         mode dock
+#         modifier $mod
+#         font pango:JetBrains Mono 10
+#         colors {
+#                 background #1e1e1e
+#         }
+# }
