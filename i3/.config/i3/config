@@ -69,7 +69,9 @@ client.urgent           $bg-color-urgent      $bg-color-urgent   $text-color-act
 # for_window [class="Thunar"]              floating enable, resize set width 1280 px, resize set height 800 px, move position center
 for_window [class="gnome-calculator"]    floating enable, resize set width  356 px, resize set height 501 px, move position center
 for_window [class="Nitrogen"]            floating enable, resize set width 1280 px, resize set height 800 px, move position center
+for_window [class="Geany"]               floating enable, move position center
 
+assign [class="Geany"]          $ws9
 assign [class="Firefox-esr"]    $ws1
 assign [class="Steam"]          $ws5
 
