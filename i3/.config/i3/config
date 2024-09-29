@@ -242,6 +242,6 @@ bar {
         modifier $mod
         font pango:JetBrains Mono 10
         colors {
-                background #242424
+                background #1e1e1e
         }
 }
