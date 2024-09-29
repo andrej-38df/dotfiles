@@ -1,5 +1,6 @@
 alias cl='clear'
 alias cdd='cd ~/dotfiles'
+alias gitpush='git add . && git commit -m "without comment" && git push'
 alias ll='ls -al'
 alias ls='ls -a'
 alias notes='nvim ~/Nextcloud/Notes/Privat/Quicknotes.md'
